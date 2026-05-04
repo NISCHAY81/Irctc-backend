@@ -27,7 +27,7 @@ public class Train {
     private String name;
     private String number;
 
-    private String routeName;
+//    private String routeName;
 
     private Integer totalDistance;
 

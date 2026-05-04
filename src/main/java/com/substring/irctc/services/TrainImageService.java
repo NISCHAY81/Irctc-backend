@@ -32,7 +32,7 @@ public class TrainImageService {
     private TrainImageRepo  trainImageRepo;
     @Autowired
     private TrainRepo trainRepo;
-    public TrainImageResponse upload(MultipartFile file, String trainNo) throws IOException {
+    public TrainImageResponse upload(MultipartFile file, Long trainNo) throws IOException {
 
        Train train =  trainRepo.findById(trainNo).orElseThrow(()-> new ResourceNotFoundException("Train not found!!"));
         // checking and creating folder
@@ -57,7 +57,7 @@ public class TrainImageService {
 
     }
 
-    public TrainImageDataWithResource loadImageByTrainNo(String trainId) throws  MalformedURLException {
+    public TrainImageDataWithResource loadImageByTrainNo(Long trainId) throws  MalformedURLException {
       Train train =   trainRepo.findById(trainId).orElseThrow(()-> new ResourceNotFoundException("Train not found!!"));
         TrainImage trainImage = train.getTrainImage();
         if(trainImage == null) {
