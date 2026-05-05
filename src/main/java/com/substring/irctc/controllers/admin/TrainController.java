@@ -2,6 +2,7 @@ package com.substring.irctc.controllers.admin;
 
 import com.substring.irctc.dto.TrainDTO;
 import com.substring.irctc.services.TrainsService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController("adminTrainController")
 @RequestMapping("/admin/trains")
+
 public class TrainController {
 
     private TrainsService trainsService;
