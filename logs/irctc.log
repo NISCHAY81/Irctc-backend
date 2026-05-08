@@ -1,0 +1,42 @@
+2026-05-07T17:52:45.224+05:30  INFO 18828 --- [Irctc-backend] [main] c.s.irctc.IrctcBackendApplication        : Starting IrctcBackendApplication using Java 26 with PID 18828 (E:\New folder (2)\Irctc-backend\target\classes started by user in E:\New folder (2)\Irctc-backend)
+2026-05-07T17:52:45.227+05:30  INFO 18828 --- [Irctc-backend] [main] c.s.irctc.IrctcBackendApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-05-07T17:52:46.127+05:30  INFO 18828 --- [Irctc-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-07T17:52:46.208+05:30  INFO 18828 --- [Irctc-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 8 JPA repository interfaces.
+2026-05-07T17:52:46.809+05:30  INFO 18828 --- [Irctc-backend] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-07T17:52:46.824+05:30  INFO 18828 --- [Irctc-backend] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-07T17:52:46.824+05:30  INFO 18828 --- [Irctc-backend] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-07T17:52:46.876+05:30  INFO 18828 --- [Irctc-backend] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1579 ms
+2026-05-07T17:52:47.003+05:30  INFO 18828 --- [Irctc-backend] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-07T17:52:47.058+05:30  INFO 18828 --- [Irctc-backend] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-07T17:52:47.480+05:30  INFO 18828 --- [Irctc-backend] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-07T17:52:47.511+05:30  INFO 18828 --- [Irctc-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-07T17:52:47.905+05:30  INFO 18828 --- [Irctc-backend] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66a8751a
+2026-05-07T17:52:47.906+05:30  INFO 18828 --- [Irctc-backend] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-07T17:52:47.978+05:30  WARN 18828 --- [Irctc-backend] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-07T17:52:47.995+05:30  INFO 18828 --- [Irctc-backend] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/backend_irctc]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: backend_irctc/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-07T17:52:49.088+05:30  INFO 18828 --- [Irctc-backend] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-07T17:52:49.192+05:30  INFO 18828 --- [Irctc-backend] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-07T17:52:49.290+05:30  INFO 18828 --- [Irctc-backend] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-07T17:52:49.611+05:30  INFO 18828 --- [Irctc-backend] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailService
+2026-05-07T17:52:50.158+05:30  WARN 18828 --- [Irctc-backend] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-07T17:52:50.740+05:30  INFO 18828 --- [Irctc-backend] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-07T17:52:50.745+05:30  INFO 18828 --- [Irctc-backend] [main] c.s.irctc.IrctcBackendApplication        : Started IrctcBackendApplication in 6.032 seconds (process running for 6.768)
+2026-05-07T17:52:50.748+05:30  INFO 18828 --- [Irctc-backend] [main] c.s.irctc.IrctcBackendApplication        : Initializing roles...
+2026-05-07T17:52:50.748+05:30  WARN 18828 --- [Irctc-backend] [main] c.s.irctc.IrctcBackendApplication        : Initializing roles...
+2026-05-07T17:52:50.750+05:30 ERROR 18828 --- [Irctc-backend] [main] c.s.irctc.IrctcBackendApplication        : Initializing roles...
+2026-05-07T19:43:54.275+05:30  INFO 18828 --- [Irctc-backend] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-07T19:43:54.299+05:30  INFO 18828 --- [Irctc-backend] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-07T19:43:54.323+05:30  INFO 18828 --- [Irctc-backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-07T19:43:54.344+05:30  INFO 18828 --- [Irctc-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-07T19:43:54.351+05:30  INFO 18828 --- [Irctc-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

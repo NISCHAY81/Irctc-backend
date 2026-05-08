@@ -1,13 +1,13 @@
 package com.substring.irctc.entity;
 
+import com.substring.irctc.exception.ResourceNotFoundException;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "train_seats")
@@ -33,9 +33,20 @@ public class TrainSeat {
 
     private  Integer availableSeats;
 
-    private  Integer nextToAssign = 1;
+    private Double price;
 
-    private BigDecimal price;
+    private Integer trainSeatOrder;
+//    private  Integer nextToAssign = 1;
+
+    public Integer seatNumberToAssign;
+
+    public boolean isCoachFull() {
+        return availableSeats <= 0;
+    }
+
+    public boolean isSeatAvailable(int seatToBook) {
+        return seatToBook <=  availableSeats;
+    }
 
 
 

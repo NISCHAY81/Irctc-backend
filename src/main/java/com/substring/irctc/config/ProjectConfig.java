@@ -2,6 +2,8 @@ package com.substring.irctc.config;
 
 import com.substring.irctc.interceptors.MyCustomInterceptors;
 import com.substring.irctc.interceptors.TimeLoggerInterceptor;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -29,5 +31,21 @@ public class ProjectConfig implements WebMvcConfigurer {
 @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
+    }
+
+    @Bean
+    public OpenAPI openAPI () {
+     return new OpenAPI()
+             .info(
+                     new Info()
+                             .title("IRCTC API")
+                     .version("1.0")
+                     .description("This is the IRCTC API")
+                             .termsOfService("https://www.irctc.com/terms-of-service")
+                             .contact(new io.swagger.v3.oas.models.info.Contact()
+                                     .name("IRCTC API")
+                                     .url("https://www.irctc.com")
+                                     .email("IRCTCAPI@gmail.com")
+                             ));
     }
 }
