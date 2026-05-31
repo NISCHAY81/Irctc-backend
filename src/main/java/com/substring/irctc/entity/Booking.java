@@ -27,6 +27,8 @@ public class Booking {
     @JoinColumn(name = "user_id")
     private User user;
 
+    private  Long pnr;
+
     @ManyToOne
     @JoinColumn(name = "train_schedule_id")
     private  TrainSchedule  trainSchedule;
@@ -48,7 +50,7 @@ public class Booking {
 
      private LocalDateTime createdAt;
 
-     @OneToMany(mappedBy = "booking")
+     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
      private List<BookingPassenger> passengers;
 
      @OneToOne(mappedBy = "booking",cascade = CascadeType.ALL)

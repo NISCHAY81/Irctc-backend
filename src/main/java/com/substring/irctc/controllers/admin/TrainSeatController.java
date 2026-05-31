@@ -19,6 +19,12 @@ public class TrainSeatController {
 
     // create
 
+    @GetMapping                                               // ← ADD THIS
+    public ResponseEntity<List<TrainSeatDto>> getAllSeats() {
+        List<TrainSeatDto> seatDtos = trainSeatService.getAllSeats();
+        return ResponseEntity.ok(seatDtos);
+    }
+
     @PostMapping
     public ResponseEntity<TrainSeatDto> createSeat(@RequestBody  TrainSeatDto trainSeatDto) {
         TrainSeatDto createSeat = trainSeatService.createSeatInfo(trainSeatDto);

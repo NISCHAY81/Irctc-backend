@@ -17,10 +17,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -49,10 +46,12 @@ public class AuthController {
             this.authenticationManager.authenticate(authentication);
             // generate token
             UserDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.username());
-            String token = this.jwtHelper.generateToken(userDetails);
+            String token = this.jwtHelper.generateAccessToken(userDetails);
+            String refreshToken = this.jwtHelper.generateRefreshToken(userDetails);
             User user = userRepo.findByEmail(loginRequest.username()).get();
             JwtResponse jwtResponse = new JwtResponse(
                     token,
+                    refreshToken,
                     modelMapper.map(user, UserDto.class)
             );
              return  new ResponseEntity<>(jwtResponse, HttpStatus.OK);
@@ -69,5 +68,31 @@ public class AuthController {
      public ResponseEntity<?> registerUser(@RequestBody UserDto userDto) {
         UserDto dto = userService.registerUser(userDto);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
+     }
+
+     @PostMapping("/refresh-token")
+     public ResponseEntity<?> refreshToken(@RequestBody String refreshToken) {
+        if(refreshToken == null) {
+            return new ResponseEntity<>(new ErrorResponse("Refresh token is empty", "400", false), HttpStatus.BAD_REQUEST);
+        }
+
+        if(!jwtHelper.isRefreshToken(refreshToken)) {
+            return new ResponseEntity<>(new ErrorResponse("Refresh token is not valid", "400", false), HttpStatus.BAD_REQUEST);
+        }
+
+
+       String username =  jwtHelper.getUsernameFromToken(refreshToken);
+        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+        if(jwtHelper.isTokenValid(refreshToken,userDetails)) {
+           String accessToken = jwtHelper.generateAccessToken(userDetails);
+           String newRefreshToken = jwtHelper.generateRefreshToken(userDetails);
+           UserDto userDto = modelMapper.map(userRepo.findByEmail(username).orElse(null), UserDto.class);
+           return  new ResponseEntity<>(new JwtResponse(accessToken, newRefreshToken, userDto), HttpStatus.OK);
+
+        } else {
+            return new ResponseEntity<>(new ErrorResponse("Refresh token is not valid", "400", false), HttpStatus.BAD_REQUEST);
+
+        }
+
      }
 }

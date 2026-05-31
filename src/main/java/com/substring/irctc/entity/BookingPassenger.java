@@ -27,5 +27,10 @@ public class BookingPassenger {
 
    private  String gender;
 
+
+   @ManyToOne
+
+   private TrainSeat trainSeat;
+
    private  String seatNumber;
 }

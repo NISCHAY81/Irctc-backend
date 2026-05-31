@@ -82,4 +82,15 @@ public class TrainSeatServiceImpl implements TrainSeatService {
             throw  new IllegalStateException("No seats available");
         }
     }
+
+
+    @Override
+    public List<TrainSeatDto> getAllSeats() {
+        return trainSeatRepo.findAll()
+                .stream()
+                .map(seat -> modelMapper.map(seat, TrainSeatDto.class))
+                .toList();
+    }
+
+
 }

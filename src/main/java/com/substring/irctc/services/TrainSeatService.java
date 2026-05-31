@@ -15,4 +15,7 @@ public interface TrainSeatService {
 
     List<Integer> bookSeat (int seatBook, Long seatId);
 
+
+    List<TrainSeatDto> getAllSeats();
+
 }

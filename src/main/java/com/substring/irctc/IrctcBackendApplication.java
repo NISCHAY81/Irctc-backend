@@ -23,11 +23,11 @@ public class IrctcBackendApplication implements CommandLineRunner {
 	private RoleRepo roleRepo;
 	@Override
 	public void run(String... args) throws Exception {
-    logger.trace("Initializing roles...");
-	logger.debug("Initializing roles...");
-	logger.info("Initializing roles...");
-	logger.warn("Initializing roles...");
-	logger.error("Initializing roles...");
+//    logger.trace("Initializing roles...");
+//	logger.debug("Initializing roles...");
+//	logger.info("Initializing roles...");
+//	logger.warn("Initializing roles...");
+//	logger.error("Initializing roles...");
 	 if(!roleRepo.existsByName("ROLE_ADMIN"))
 	 {
 		 Role adminRole = new Role();

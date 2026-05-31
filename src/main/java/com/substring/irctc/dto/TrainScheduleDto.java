@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class TrainScheduleDto {
     private Long id;
     private Long trainId;
-    private LocalDateTime runDate;
+    private LocalDate runDate;
     private Integer availableSeats;
 
 }
